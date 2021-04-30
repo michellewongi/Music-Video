@@ -6,6 +6,8 @@ let rain;
 let girl;
 let heart;
 let rose;
+let cover;
+let thorns;
 
 function preload() {
   //song
@@ -14,6 +16,8 @@ function preload() {
   //backgrounds
   hw = loadImage('images/hollywood.png');
   stars = loadImage('images/stars.png');
+  cover = loadImage("images/cover.png");
+  thorns = loadImage("images/thorns.png");
 
   //animations
   rain = loadAnimation('images/rain_1.png', 'images/rain_2.png');
@@ -26,6 +30,8 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+
+  background(color(64, 58, 55));
 
   //slows the speed of animation
   rain.frameDelay = 10;
@@ -40,7 +46,7 @@ function setup() {
   button.style("font-family", "Knewave");
   button.style("font-size", "48px");
   button.style("background-color", col);
-  button.position(windowWidth / 2 - 80, windowHeight / 2 - 50);
+  button.position(windowWidth / 2 - 80, windowHeight / 2 + 150);
   button.mousePressed(start);
 
 } //end of setup
@@ -56,7 +62,7 @@ function start() {
 
 
 function draw() {
-  background(0);
+  image(cover, windowWidth / 2 - 150, windowHeight / 2 - 300, 400, 400);
 
   if (song.currentTime() >= 1 && song.currentTime() <= 4) {
     image(hw, 0, 0, windowWidth, windowHeight);
@@ -71,11 +77,13 @@ function draw() {
   }
 
   if (song.currentTime() > 7 && song.currentTime() <= 12) {
+    background(0);
     scale(0.5);
     animation(heart, windowWidth / 2 + 700, windowHeight / 2 + 400);
   }
 
-  if (song.currentTime() > 12 && song.currentTime() <= 17) {
+  if (song.currentTime() > 12 && song.currentTime() <= 16) {
+    background(thorns);
     scale(0.5);
     animation(rose, windowWidth / 2 + 700, windowHeight / 2 + 400);
   }
