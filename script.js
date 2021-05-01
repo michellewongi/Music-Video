@@ -8,6 +8,8 @@ let heart;
 let rose;
 let cover;
 let thorns;
+let clock;
+let thanks;
 
 function preload() {
   //song
@@ -18,12 +20,14 @@ function preload() {
   stars = loadImage('images/stars.png');
   cover = loadImage("images/cover.png");
   thorns = loadImage("images/thorns.png");
+  thanks = loadImage('images/thanks.png');
 
   //animations
   rain = loadAnimation('images/rain_1.png', 'images/rain_2.png');
   girl = loadAnimation('images/girl_1.png', 'images/girl_5.png');
   heart = loadAnimation('images/heart_2.png', 'images/heart_13.png');
   rose = loadAnimation('images/rose_1.png', 'images/rose_12.png');
+  clock = loadAnimation('images/clock_1.png', 'images/clock_16.png');
 
 } //end of preload
 
@@ -38,6 +42,7 @@ function setup() {
   girl.frameDelay = 15;
   heart.frameDelay = 13;
   rose.frameDelay = 13;
+  clock.frameDelay = 10;
 
   //creates a button
   let col = color(188, 143, 143);
@@ -57,7 +62,7 @@ function start() {
   button.hide();
   song.setVolume(0.2);
   song.play();
-  song.stop([24]);
+  song.stop([25]);
 } //end of start
 
 
@@ -82,10 +87,21 @@ function draw() {
     animation(heart, windowWidth / 2 + 700, windowHeight / 2 + 400);
   }
 
-  if (song.currentTime() > 12 && song.currentTime() <= 16) {
+  if (song.currentTime() > 12 && song.currentTime() <= 17) {
     background(thorns);
     scale(0.5);
     animation(rose, windowWidth / 2 + 700, windowHeight / 2 + 400);
   }
+
+  if (song.currentTime() > 17 && song.currentTime() <= 24) {
+    background(0);
+    scale(0.2);
+    animation(clock, windowWidth / 2 + 2900, windowHeight / 2 + 1600);
+  }
+
+  if (song.currentTime() > 24) {
+    background(thanks);
+  }
+
 
 } //end of draw
