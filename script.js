@@ -10,6 +10,11 @@ let cover;
 let thorns;
 let clock;
 let thanks;
+let skull;
+let moveX;
+let moveY;
+let speed = 30;
+
 
 function preload() {
   //song
@@ -21,6 +26,7 @@ function preload() {
   cover = loadImage("images/cover.png");
   thorns = loadImage("images/thorns.png");
   thanks = loadImage('images/thanks.png');
+  skull = loadImage('images/skull.png');
 
   //animations
   rain = loadAnimation('images/rain_1.png', 'images/rain_2.png');
@@ -36,13 +42,21 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   background(color(64, 58, 55));
+  image(cover, windowWidth / 2 - 150, windowHeight / 2 - 300, 400, 400);
+
+
+  moveX = windowWidth / 2;
+  moveY = windowHeight / 2;
 
   //slows the speed of animation
   rain.frameDelay = 10;
-  girl.frameDelay = 15;
+  girl.frameDelay = 13;
   heart.frameDelay = 13;
   rose.frameDelay = 13;
   clock.frameDelay = 10;
+
+  angleMode(DEGREES);
+
 
   //creates a button
   let col = color(188, 143, 143);
@@ -54,6 +68,7 @@ function setup() {
   button.position(windowWidth / 2 - 80, windowHeight / 2 + 150);
   button.mousePressed(start);
 
+
 } //end of setup
 
 
@@ -62,12 +77,11 @@ function start() {
   button.hide();
   song.setVolume(0.2);
   song.play();
-  song.stop([25]);
+  song.stop([39]);
 } //end of start
 
 
 function draw() {
-  image(cover, windowWidth / 2 - 150, windowHeight / 2 - 300, 400, 400);
 
   if (song.currentTime() >= 1 && song.currentTime() <= 4) {
     image(hw, 0, 0, windowWidth, windowHeight);
@@ -99,7 +113,29 @@ function draw() {
     animation(clock, windowWidth / 2 + 2900, windowHeight / 2 + 1600);
   }
 
-  if (song.currentTime() > 24) {
+  if (song.currentTime() > 24 && song.currentTime() <= 25) {
+    background(0);
+  }
+
+  if (song.currentTime() > 25 && song.currentTime() <= 38) {
+
+    // reference from rustyrobison's p5.js sketch of rainbow fog.
+    // https://editor.p5js.org/rustyrobison/sketches/HylPsBaBG
+
+    fill(moveY / 2, 40, 50, 10); //color of the fog
+    noStroke();
+    ellipse(moveX, moveY, 1000, 1000); // ellipse location and size
+    moveX = moveX + random(speed * -2, speed * 2); //x coordinate movement
+    moveY = moveY + random(speed * -2, speed * 2);  //y coordinate movement
+
+    scale(0.2);
+    imageMode(CORNER);
+    image(skull, windowWidth + 400, windowHeight);
+    image(skull, windowWidth + 1000, windowHeight);
+    image(skull, windowWidth + 1600, windowHeight);
+  }
+
+  if (song.currentTime() > 38) {
     background(thanks);
   }
 
