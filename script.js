@@ -17,6 +17,9 @@ let speed = 30;
 
 
 function preload() {
+  //font style
+  loadFont("Knewave-Regular.ttf");
+
   //song
   song = loadSound('ladidie.mp3');
 
@@ -55,8 +58,6 @@ function setup() {
   rose.frameDelay = 13;
   clock.frameDelay = 10;
 
-  angleMode(DEGREES);
-
 
   //creates a button
   let col = color(188, 143, 143);
@@ -77,7 +78,7 @@ function start() {
   button.hide();
   song.setVolume(0.2);
   song.play();
-  song.stop([39]);
+  song.stop([41]);
 } //end of start
 
 
@@ -117,7 +118,7 @@ function draw() {
     background(0);
   }
 
-  if (song.currentTime() > 25 && song.currentTime() <= 38) {
+  if (song.currentTime() > 25 && song.currentTime() <= 40) {
 
     // reference from rustyrobison's p5.js sketch of rainbow fog.
     // https://editor.p5js.org/rustyrobison/sketches/HylPsBaBG
@@ -126,7 +127,7 @@ function draw() {
     noStroke();
     ellipse(moveX, moveY, 1000, 1000); // ellipse location and size
     moveX = moveX + random(speed * -2, speed * 2); //x coordinate movement
-    moveY = moveY + random(speed * -2, speed * 2);  //y coordinate movement
+    moveY = moveY + random(speed * -2, speed * 2); //y coordinate movement
 
     scale(0.2);
     imageMode(CORNER);
@@ -135,7 +136,7 @@ function draw() {
     image(skull, windowWidth + 1600, windowHeight);
   }
 
-  if (song.currentTime() > 38) {
+  if (song.currentTime() > 40) {
     background(thanks);
   }
 
