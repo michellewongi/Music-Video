@@ -47,7 +47,6 @@ function setup() {
   background(color(64, 58, 55));
   image(cover, windowWidth / 2 - 150, windowHeight / 2 - 300, 400, 400);
 
-
   moveX = windowWidth / 2;
   moveY = windowHeight / 2;
 
@@ -69,7 +68,6 @@ function setup() {
   button.position(windowWidth / 2 - 80, windowHeight / 2 + 150);
   button.mousePressed(start);
 
-
 } //end of setup
 
 
@@ -84,6 +82,7 @@ function start() {
 
 function draw() {
 
+
   if (song.currentTime() >= 1 && song.currentTime() <= 4) {
     image(hw, 0, 0, windowWidth, windowHeight);
     scale(0.4);
@@ -92,6 +91,12 @@ function draw() {
 
   if (song.currentTime() > 4 && song.currentTime() <= 7) {
     image(stars, 0, 0, windowWidth, windowHeight);
+    noStroke();
+    fill("#6b87b5");
+    ellipse(random(windowWidth/2), random(windowHeight/2), 300, 300);
+    noFill();
+    stroke(random(255, 255, 255));
+    ellipse(random(windowWidth/2, windowWidth), random(windowHeight/2, windowHeight), 100, 100);
     scale(0.4);
     animation(girl, windowWidth / 2 + 1100, windowHeight / 2 + 510);
   }
@@ -119,11 +124,11 @@ function draw() {
   }
 
   if (song.currentTime() > 25 && song.currentTime() <= 40) {
+    let speed = random(-25, 25);
 
     // reference from rustyrobison's p5.js sketch of rainbow fog.
     // https://editor.p5js.org/rustyrobison/sketches/HylPsBaBG
-
-    fill(moveY / 2, 40, 50, 10); //color of the fog
+    fill(moveY / 2, 40, 80, 10); //color of the fog
     noStroke();
     ellipse(moveX, moveY, 1000, 1000); // ellipse location and size
     moveX = moveX + random(speed * -2, speed * 2); //x coordinate movement
@@ -131,9 +136,9 @@ function draw() {
 
     scale(0.2);
     imageMode(CORNER);
-    image(skull, windowWidth + 400, windowHeight);
-    image(skull, windowWidth + 1000, windowHeight);
-    image(skull, windowWidth + 1600, windowHeight);
+    image(skull, windowWidth + 100, windowHeight + speed);
+    image(skull, windowWidth + 1100, windowHeight + speed);
+    image(skull, windowWidth + 2100, windowHeight + speed);
   }
 
   if (song.currentTime() > 40) {
