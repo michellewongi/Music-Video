@@ -1,9 +1,37 @@
-# CC_MichelleWong_FinalProject
+# Table of contents
 
-This qas my final poroject for my craetive coding class to make an interaxtive piece of art though the use of p5.js
+- [Overview](#overview)
+  - [Features](#features)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+- [Author](#author)
 
-# Technologies
-* p5.js
-* CSS/HTML 
-* p5.play.library
-* p5.sound
+## Overview
+
+### Features
+
+Users should be able to:
+
+- Play the music player
+- Edit the To-Do List
+- View the current time
+
+### Screenshot
+
+![](CC-final.png)
+
+## My process
+
+### Built with
+
+- HTML
+- CSS
+- p5.js
+- p5.play.library
+- p5.sound
+
+# Author
+
+- Michelle Wong [https://michellewong.me]
