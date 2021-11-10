@@ -3,7 +3,6 @@
 - [Overview](#overview)
   - [Features](#features)
   - [Screenshot](#screenshot)
-  - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
 - [Author](#author)
