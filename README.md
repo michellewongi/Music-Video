@@ -13,9 +13,8 @@
 
 Users should be able to:
 
-- Play the music player
-- Edit the To-Do List
-- View the current time
+- Play the animation
+- Audio
 
 ### Screenshot
 
